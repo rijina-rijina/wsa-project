@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="F:/Riji/Bootstrap/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="F:/Riji/Bootstrap/fontawesome-free-5.10.1-web/css/all.min.CSS">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        #gameframe {
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #title {
+            width: 600px;
+            height: 150px;
+            background-image: url('penguin_title.png');
+        }
+
+        .penguin1 {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-image: url('mound_1.png');
+        }
+
+        .penguin1:hover {
+            background-image: url("mound_1_hover.png");
+        }
+
+        .penguin2 {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-image: url('mound_2.png');
+        }
+
+        .penguin2:hover {
+            background-image: url("mound_2_hover.png");
+        }
+
+        .penguin3 {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-image: url('mound_3.png');
+        }
+
+        .penguin3:hover {
+            background-image: url("mound_3_hover.png");
+        }
+
+        .penguin4 {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-image: url('mound_4.png');
+        }
+
+        .penguin4:hover {
+            background-image: url("mound_4_hover.png");
+        }
+
+        .penguin5 {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-image: url('mound_5.png');
+        }
+
+        .penguin5:hover {
+            background-image: url("mound_5_hover.png");
+        }
+
+        .penguin6 {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-image: url('mound_6.png');
+        }
+
+        .penguin6:hover {
+            background-image: url("mound_6_hover.png");
+        }
+
+        .penguin7 {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-image: url('mound_7.png');
+        }
+
+        .penguin7:hover {
+            background-image: url("mound_7_hover.png");
+        }
+
+        .penguin8 {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-image: url('mound_8.png');
+        }
+
+        .penguin8:hover {
+            background-image: url("mound_8_hover.png");
+        }
+
+        .penguin9 {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-image: url('mound_9.png');
+        }
+
+        .penguin9:hover {
+            background-image: url("mound_9_hover.png");
+        }
+
+        .yeti {
+            background-image: url("yeti.png");
+        }
+    </style>
+</head>
+
+<body onload="penDisp()">
+    <div id="gameframe">
+        <div id="title"></div>
+        <div class="penguin1 sel"></div>
+        <div class="penguin2 sel"></div>
+        <div class="penguin3 sel"></div>
+        <div class="penguin4 sel"></div>
+        <div class="penguin5 sel"></div>
+        <div class="penguin6 sel"></div>
+        <div class="penguin7 sel"></div>
+        <div class="penguin8 sel"></div>
+        <div class="penguin9 sel"></div>
+    </div>
+
+    <script>
+        var x = [];
+        var one,two,three,four,five,six,seven,eight;
+        function penDisp() {
+             finded = 0;
+            var i = 0;
+            one=0,two=0,three=0,four=0,five=0,six=0,seven=0,eight=0;
+            selDiv = document.getElementsByClassName("sel");
+            while (i < 9) {
+                r = Math.floor(Math.random() * 9) + 0;
+                flag = 0;
+                for (k = 0; k < x.length; k++) {
+                    if (r == x[k])
+                        flag = 1;
+                }
+                if (flag == 0) {
+                    x.push(r);
+                    i++;
+                    console.log(r)
+                }
+            }              //selDiv[r - 1].style.backgroundImage = "url('yeti.png')";
+            console.log(x);
+            selDiv[x[0]].setAttribute("onclick", "yeti()");
+            selDiv[x[1]].setAttribute("onclick", "pen1()");
+            selDiv[x[2]].setAttribute("onclick", "pen2()");
+            selDiv[x[3]].setAttribute("onclick", "pen3()");
+            selDiv[x[4]].setAttribute("onclick", "pen4()");
+            selDiv[x[5]].setAttribute("onclick", "pen5()");
+            selDiv[x[6]].setAttribute("onclick", "pen6()");
+            selDiv[x[7]].setAttribute("onclick", "pen7()");
+            selDiv[x[8]].setAttribute("onclick", "pen8()");
+        }
+
+        function yeti() {
+
+            selDiv[x[0]].style.backgroundImage = "url('yeti.png')";
+            window.setTimeout("window.location.href='won.html'", 500)
+        }
+        function pen1() {
+
+            selDiv[x[1]].style.backgroundImage = "url('penguin_1.png')";
+            if(one==0)
+            {
+            finded++;
+            one++
+            }
+            if (finded == 8)
+            window.setTimeout("window.location.href='yaa.html'", 500)
+            
+        }
+        function pen2() {
+
+            selDiv[x[2]].style.backgroundImage = "url('penguin_2.png')";
+            if(two==0)
+            {
+            finded++;
+            two++
+            }
+           
+            if (finded == 8)
+        window.setTimeout("window.location.href='yaa.html'", 500)
+        }
+        function pen3() {
+
+            selDiv[x[3]].style.backgroundImage = "url('penguin_3.png')";
+            if(three==0)
+            {
+            finded++;
+            three++
+            }
+           
+            if (finded == 8)
+            window.setTimeout("window.location.href='yaa.html'", 500)
+        }
+        function pen4() {
+
+            selDiv[x[4]].style.backgroundImage = "url('penguin_4.png')";
+            if(four==0)
+            {
+            finded++;
+            four++
+            }
+           
+            
+            if (finded == 8)
+            window.setTimeout("window.location.href='yaa.html'", 500)
+        }
+        function pen5() {
+
+            selDiv[x[5]].style.backgroundImage = "url('penguin_5.png')";
+            if(five==0)
+            {
+            finded++;
+            five++
+            }
+           
+            if (finded == 8)
+            window.setTimeout("window.location.href='yaa.html'", 500)
+        }
+        function pen6() {
+
+            selDiv[x[6]].style.backgroundImage = "url('penguin_6.png')";
+            if(six==0)
+            {
+            finded++;
+            six++
+            }
+           
+            if (finded == 8)
+            window.setTimeout("window.location.href='yaa.html'", 500)
+        }
+        function pen7() {
+
+            selDiv[x[7]].style.backgroundImage = "url('penguin_7.png')";
+            if(seven==0)
+            {
+            finded++;
+            seven++
+            }
+           
+            if (finded == 8)
+            window.setTimeout("window.location.href='yaa.html'", 500)
+        }
+        function pen8() {
+
+            selDiv[x[8]].style.backgroundImage = "url('penguin_8.png')";
+            if(eight==0)
+            {
+            finded++;
+            eight++
+            }
+           
+            
+            if (finded == 8)
+            window.setTimeout("window.location.href='yaa.html'", 500)
+        }
+
+    </script>
+</body>
+
+</html>
